@@ -1,0 +1,19 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import "../libs/css/mixin.scss";
+
+main {
+  padding-top: 50px;
+  height: 70vh;
+  background-color: rgb(242, 242, 242);
+
+  p {
+    margin-top: 35vh;
+    text-align: center;
+
+    a {
+      color: blue;
+    }
+  }
+}

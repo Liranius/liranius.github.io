@@ -1,0 +1,77 @@
+@mixin animation($v) {
+  -webkit-animation: $v;
+  animation: $v;
+}
+
+@mixin display($v) {
+  @if ($v == flex) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: $v;
+  }
+}
+
+@mixin flex-direction($v) {
+  @if ($v == column) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: $v;
+    flex-direction: $v;
+  }
+}
+
+@mixin flex-wrap($v) {
+  @if ($v == wrap) {
+    -ms-flex-wrap: $v;
+    flex-wrap: $v;
+  }
+  @else if ($v == nowrap) {
+    -ms-flex-wrap: $v;
+    flex-wrap: $v;
+  }
+}
+
+@mixin justify-content($v) {
+  @if ($v == space-between) {
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: $v;
+  }
+  @else if($v == center) {
+    -webkit-box-pack: $v;
+    -ms-flex-pack: $v;
+    justify-content: $v;
+  }
+}
+
+@mixin overflow-x($v) {
+  -ms-overflow-x: $v;
+  overflow-x: $v;
+}
+
+@mixin overflow-y($v) {
+  -ms-overflow-y: $v;
+  overflow-y: $v;
+}
+
+@mixin transform($v...) {
+  -webkit-transform: $v;
+  -moz-transform: $v;
+  -ms-transform: $v;
+  transform: $v;
+}
+
+@mixin transition($v...) {
+  -webkit-transition: $v;
+  transition: $v;
+}
+
+@mixin transition-delay($v) {
+  -webkit-transition-delay: $v;
+  transition-delay: $v;
+}
+
+@mixin transform($v) {
+  -webkit-transform: $v;
+  transform: $v;
+}

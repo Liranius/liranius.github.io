@@ -1,0 +1,471 @@
+body {
+  height: 100vh;
+  background: steelblue url("blueback.jpg") fixed top left; }
+
+/*card styles*/
+.poker-card {
+  position: absolute;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background: green url("greenback.jpg") fixed top left;
+  background-size: contain; }
+  @media only screen and (max-aspect-ratio: 4 / 3) {
+    .poker-card {
+      box-shadow: 0.1vw 0.1vw 0.3vw #222222;
+      border: 0.3vw solid white;
+      border-radius: 0.5vw; } }
+  @media only screen and (min-aspect-ratio: 4 / 3) {
+    .poker-card {
+      box-shadow: calc(0.1vh * 4 / 3) calc(0.1vh * 4 / 3) calc(0.3vh * 4 / 3) #222222;
+      border: calc(0.3vh * 4 / 3) solid white;
+      border-radius: calc(0.5vh * 4 / 3); } }
+
+.hide {
+  display: none; }
+
+.card-red {
+  color: red; }
+
+.card-black {
+  color: black; }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .high-light {
+    box-shadow: 0 0 1vw yellow; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .high-light {
+    box-shadow: 0 0 calc(1vh * 4 / 3) yellow; } }
+
+.card-wrapper {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: white; }
+  @media only screen and (max-aspect-ratio: 4 / 3) {
+    .card-wrapper {
+      border-radius: 0.2vw;
+      padding-top: 3vw;
+      font-size: 2vw; } }
+  @media only screen and (min-aspect-ratio: 4 / 3) {
+    .card-wrapper {
+      border-radius: calc(0.2vh * 4 / 3);
+      padding-top: calc(3vh * 4 / 3);
+      font-size: calc(2vh * 4 / 3); } }
+  .card-wrapper p {
+    position: absolute;
+    text-align: center;
+    font-weight: 900; }
+    @media only screen and (max-aspect-ratio: 4 / 3) {
+      .card-wrapper p {
+        width: 2vw;
+        height: 2.2vw;
+        line-height: 2.2vw;
+        font-size: 2vw; } }
+    @media only screen and (min-aspect-ratio: 4 / 3) {
+      .card-wrapper p {
+        width: calc(2vh * 4 / 3);
+        height: calc(2.2vh * 4 / 3);
+        line-height: calc(2.2vh * 4 / 3);
+        font-size: calc(2vh * 4 / 3); } }
+    @media only screen and (max-aspect-ratio: 4 / 3) {
+      .card-wrapper p:first-of-type {
+        top: 0vw;
+        left: 0vw; } }
+    @media only screen and (min-aspect-ratio: 4 / 3) {
+      .card-wrapper p:first-of-type {
+        top: calc(0vh * 4 / 3);
+        left: calc(0vh * 4 / 3); } }
+    .card-wrapper p:last-of-type {
+      transform: rotate(180deg); }
+      @media only screen and (max-aspect-ratio: 4 / 3) {
+        .card-wrapper p:last-of-type {
+          right: 0vw;
+          bottom: 0vw; } }
+      @media only screen and (min-aspect-ratio: 4 / 3) {
+        .card-wrapper p:last-of-type {
+          right: calc(0vh * 4 / 3);
+          bottom: calc(0vh * 4 / 3); } }
+  .card-wrapper h1 {
+    position: absolute;
+    text-align: center; }
+    @media only screen and (max-aspect-ratio: 4 / 3) {
+      .card-wrapper h1 {
+        width: 2vw;
+        height: 2.2vw;
+        line-height: 2.2vw;
+        font-size: 2.4vw; } }
+    @media only screen and (min-aspect-ratio: 4 / 3) {
+      .card-wrapper h1 {
+        width: calc(2vh * 4 / 3);
+        height: calc(2.2vh * 4 / 3);
+        line-height: calc(2.2vh * 4 / 3);
+        font-size: calc(2.4vh * 4 / 3); } }
+    @media only screen and (max-aspect-ratio: 4 / 3) {
+      .card-wrapper h1:first-of-type {
+        top: 2vw;
+        left: 0vw; } }
+    @media only screen and (min-aspect-ratio: 4 / 3) {
+      .card-wrapper h1:first-of-type {
+        top: calc(2vh * 4 / 3);
+        left: calc(0vh * 4 / 3); } }
+    .card-wrapper h1:last-of-type {
+      transform: rotate(180deg); }
+      @media only screen and (max-aspect-ratio: 4 / 3) {
+        .card-wrapper h1:last-of-type {
+          right: 0vw;
+          bottom: 2vw; } }
+      @media only screen and (min-aspect-ratio: 4 / 3) {
+        .card-wrapper h1:last-of-type {
+          right: calc(0vh * 4 / 3);
+          bottom: calc(2vh * 4 / 3); } }
+
+/*card pile styles*/
+.bordered-card-pile {
+  position: absolute;
+  box-sizing: border-box;
+  width: 12%;
+  height: calc(12% * 4 / 3 * 4 / 3); }
+  @media only screen and (max-aspect-ratio: 4 / 3) {
+    .bordered-card-pile {
+      border: 0.2vw solid rgba(255, 255, 255, 0.5);
+      border-radius: 0.5vw; } }
+  @media only screen and (min-aspect-ratio: 4 / 3) {
+    .bordered-card-pile {
+      border: calc(0.2vh * 4 / 3) solid rgba(255, 255, 255, 0.5);
+      border-radius: calc(0.5vh * 4 / 3); } }
+
+.borderless-card-pile {
+  position: absolute;
+  box-sizing: border-box;
+  width: 12%;
+  height: calc(12% * 4 / 3 * 4 / 3); }
+  @media only screen and (max-aspect-ratio: 4 / 3) {
+    .borderless-card-pile {
+      border: 0.2vw solid rgba(255, 255, 255, 0);
+      border-radius: 0.5vw; } }
+  @media only screen and (min-aspect-ratio: 4 / 3) {
+    .borderless-card-pile {
+      border: calc(0.2vh * 4 / 3) solid rgba(255, 255, 255, 0);
+      border-radius: calc(0.5vh * 4 / 3); } }
+
+/*game element styles*/
+#desk {
+  position: relative;
+  margin: auto; }
+  @media only screen and (max-aspect-ratio: 4 / 3) {
+    #desk {
+      width: 100vw;
+      height: 75vw; } }
+  @media only screen and (min-aspect-ratio: 4 / 3) {
+    #desk {
+      width: 133.33333vh;
+      height: 100vh; } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #card-pile {
+    top: 2vw;
+    left: 2vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #card-pile {
+    top: calc(2vh * 4 / 3);
+    left: calc(2vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #abandoned-card-pile {
+    top: 2vw;
+    left: 16vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #abandoned-card-pile {
+    top: calc(2vh * 4 / 3);
+    left: calc(16vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #finish-stack-0 {
+    top: 2vw;
+    left: 44vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #finish-stack-0 {
+    top: calc(2vh * 4 / 3);
+    left: calc(44vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #finish-stack-1 {
+    top: 2vw;
+    left: 58vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #finish-stack-1 {
+    top: calc(2vh * 4 / 3);
+    left: calc(58vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #finish-stack-2 {
+    top: 2vw;
+    left: 72vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #finish-stack-2 {
+    top: calc(2vh * 4 / 3);
+    left: calc(72vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #finish-stack-3 {
+    top: 2vw;
+    left: 86vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #finish-stack-3 {
+    top: calc(2vh * 4 / 3);
+    left: calc(86vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(2) {
+    top: 3vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(2) {
+    top: 4vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(3) {
+    top: 6vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(3) {
+    top: 8vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(4) {
+    top: 9vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(4) {
+    top: 12vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(5) {
+    top: 12vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(5) {
+    top: 16vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(6) {
+    top: 15vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(6) {
+    top: 20vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(7) {
+    top: 18vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(7) {
+    top: 24vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(8) {
+    top: 21vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(8) {
+    top: 28vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(9) {
+    top: 24vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(9) {
+    top: 32vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(10) {
+    top: 27vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(10) {
+    top: 36vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(11) {
+    top: 30vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(11) {
+    top: 40vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(12) {
+    top: 33vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(12) {
+    top: 44vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(13) {
+    top: 36vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(13) {
+    top: 48vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(14) {
+    top: 39vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(14) {
+    top: 52vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(15) {
+    top: 42vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(15) {
+    top: 56vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(16) {
+    top: 45vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(16) {
+    top: 60vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(17) {
+    top: 48vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(17) {
+    top: 64vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(18) {
+    top: 51vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(18) {
+    top: 68vh; } }
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(19) {
+    top: 54vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  .covered-stack .poker-card:nth-of-type(19) {
+    top: 72vh; } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #covered-stack-0 {
+    top: 22vw;
+    left: 2vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #covered-stack-0 {
+    top: calc(22vh * 4 / 3);
+    left: calc(2vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #covered-stack-1 {
+    top: 22vw;
+    left: 16vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #covered-stack-1 {
+    top: calc(22vh * 4 / 3);
+    left: calc(16vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #covered-stack-2 {
+    top: 22vw;
+    left: 30vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #covered-stack-2 {
+    top: calc(22vh * 4 / 3);
+    left: calc(30vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #covered-stack-3 {
+    top: 22vw;
+    left: 44vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #covered-stack-3 {
+    top: calc(22vh * 4 / 3);
+    left: calc(44vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #covered-stack-4 {
+    top: 22vw;
+    left: 58vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #covered-stack-4 {
+    top: calc(22vh * 4 / 3);
+    left: calc(58vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #covered-stack-5 {
+    top: 22vw;
+    left: 72vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #covered-stack-5 {
+    top: calc(22vh * 4 / 3);
+    left: calc(72vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #covered-stack-6 {
+    top: 22vw;
+    left: 86vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #covered-stack-6 {
+    top: calc(22vh * 4 / 3);
+    left: calc(86vh * 4 / 3); } }
+
+.button-wrapper {
+  position: absolute; }
+  @media only screen and (max-aspect-ratio: 4 / 3) {
+    .button-wrapper {
+      width: 8vw;
+      height: 4.5vw;
+      border: 0.1vw solid green; } }
+  @media only screen and (min-aspect-ratio: 4 / 3) {
+    .button-wrapper {
+      width: calc(8vh * 4 / 3);
+      height: calc(4.5vh * 4 / 3);
+      border: calc(0.1vh * 4 / 3) solid green; } }
+
+.button {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  color: white; }
+  @media only screen and (max-aspect-ratio: 4 / 3) {
+    .button {
+      border: 0.1vw solid #80c080; } }
+  @media only screen and (min-aspect-ratio: 4 / 3) {
+    .button {
+      border: calc(0.1vh * 4 / 3) solid #80c080; } }
+  .button h1 {
+    text-align: center;
+    font-weight: 900; }
+    @media only screen and (max-aspect-ratio: 4 / 3) {
+      .button h1 {
+        margin-top: 0vw;
+        line-height: 2.4vw;
+        font-size: 2.2vw; } }
+    @media only screen and (min-aspect-ratio: 4 / 3) {
+      .button h1 {
+        margin-top: calc(0vh * 4 / 3);
+        line-height: calc(2.4vh * 4 / 3);
+        font-size: calc(2.2vh * 4 / 3); } }
+  .button p {
+    text-align: center;
+    font-weight: 900; }
+    @media only screen and (max-aspect-ratio: 4 / 3) {
+      .button p {
+        margin-top: 0vw;
+        line-height: 1.8vw;
+        font-size: 1.6vw; } }
+    @media only screen and (min-aspect-ratio: 4 / 3) {
+      .button p {
+        margin-top: calc(0vh * 4 / 3);
+        line-height: calc(1.8vh * 4 / 3);
+        font-size: calc(1.6vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #solve {
+    top: 7.5vw;
+    left: 18vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #solve {
+    top: calc(7.5vh * 4 / 3);
+    left: calc(18vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #redeal {
+    bottom: 2vw;
+    left: 2vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #redeal {
+    bottom: calc(2vh * 4 / 3);
+    left: calc(2vh * 4 / 3); } }
+
+@media only screen and (max-aspect-ratio: 4 / 3) {
+  #recall {
+    right: 2vw;
+    bottom: 2vw; } }
+@media only screen and (min-aspect-ratio: 4 / 3) {
+  #recall {
+    right: calc(2vh * 4 / 3);
+    bottom: calc(2vh * 4 / 3); } }
+
+/*# sourceMappingURL=style.css.map */
