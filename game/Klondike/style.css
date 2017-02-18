@@ -1,6 +1,12 @@
 body {
   height: 100vh;
   background: steelblue url("blueback.jpg") fixed top left; }
+  @media only screen and (max-aspect-ratio: 4 / 3) {
+    body {
+      background-size: 21vw 14vw; } }
+  @media only screen and (min-aspect-ratio: 4 / 3) {
+    body {
+      background-size: calc(21vh * 4 / 3) calc(14vh * 4 / 3); } }
 
 /*card styles*/
 .poker-card {
@@ -8,18 +14,19 @@ body {
   box-sizing: border-box;
   width: 100%;
   height: 100%;
-  background: green url("greenback.jpg") fixed top left;
-  background-size: contain; }
+  background: green url("greenback.jpg") fixed top left; }
   @media only screen and (max-aspect-ratio: 4 / 3) {
     .poker-card {
       box-shadow: 0.1vw 0.1vw 0.3vw #222222;
       border: 0.3vw solid white;
-      border-radius: 0.5vw; } }
+      border-radius: 0.5vw;
+      background-size: 15vw 20vw; } }
   @media only screen and (min-aspect-ratio: 4 / 3) {
     .poker-card {
       box-shadow: calc(0.1vh * 4 / 3) calc(0.1vh * 4 / 3) calc(0.3vh * 4 / 3) #222222;
       border: calc(0.3vh * 4 / 3) solid white;
-      border-radius: calc(0.5vh * 4 / 3); } }
+      border-radius: calc(0.5vh * 4 / 3);
+      background-size: calc(15vh * 4 / 3) calc(20vh * 4 / 3); } }
 
 .hide {
   display: none; }
