@@ -50,13 +50,12 @@ System.register(["./Definitions"], function (exports_1, context_1) {
                         if (_this._moveCardData()) {
                             switch (_this._draggedType) {
                                 case "cardArray":
-                                    var tempArr = Array(0);
+                                    var tempArr = document.createElement("div");
                                     for (var i = stackDiv.children.length - 1; i >= _this._draggedCardIndex; i--) {
-                                        tempArr.push(stackDiv.children[i]);
-                                        delete stackDiv.children[i];
+                                        tempArr.appendChild(stackDiv.children[i]);
                                     }
-                                    while (tempArr.length)
-                                        target.appendChild(tempArr.pop());
+                                    while (tempArr.children.length)
+                                        target.appendChild(tempArr.lastChild);
                                     break;
                                 case "card":
                                     if (_this._eventType === "dblclick")
@@ -284,9 +283,11 @@ System.register(["./Definitions"], function (exports_1, context_1) {
                     var coveredStackDivs = document.getElementsByClassName(this._bindings["coveredStackClass"]);
                     var draggedCardDiv;
                     var draggedStackDiv;
-                    document.addEventListener("dragover", function () { event.preventDefault(); });
+                    document.addEventListener("dragover", function (evt) { evt.preventDefault(); });
+                    document.addEventListener("drop", function (evt) { evt.preventDefault(); });
                     for (var i = 0; i < cardDivs.length; i++) {
-                        cardDivs[i].addEventListener("dragstart", function () {
+                        cardDivs[i].addEventListener("dragstart", function (evt) {
+                            evt.dataTransfer.setData("text/plain", "zero");
                             draggedCardDiv = this;
                             draggedStackDiv = this.parentNode;
                             rThis._eventType = "drag";
