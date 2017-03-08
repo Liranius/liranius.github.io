@@ -1,0 +1,1 @@
+{"version":3,"sources":["public/js/head-normal.ts"],"names":["document","querySelector","innerHTML","title"],"mappings":"AAGAA,SAASC,cAAc,QAAQC,WAAa,gBAC9BC,MAAK","file":"public/js/head-normal.js","sourceRoot":"source"}
